@@ -1,16 +1,12 @@
 package com.wangzhixuan.commons.shiro;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
+import com.wangzhixuan.model.User;
+import com.wangzhixuan.model.vo.UserVo;
+import com.wangzhixuan.service.IRoleService;
+import com.wangzhixuan.service.IUserService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.AuthenticationInfo;
-import org.apache.shiro.authc.AuthenticationToken;
-import org.apache.shiro.authc.SimpleAuthenticationInfo;
-import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.authc.*;
 import org.apache.shiro.authc.credential.CredentialsMatcher;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
@@ -20,10 +16,9 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.SimplePrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.wangzhixuan.model.User;
-import com.wangzhixuan.model.vo.UserVo;
-import com.wangzhixuan.service.IRoleService;
-import com.wangzhixuan.service.IUserService;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * @description：shiro权限认证
@@ -85,7 +80,13 @@ public class ShiroDbRealm extends AuthorizingRealm {
         
         return info;
     }
-    
+
+    @Override
+    protected Object getAuthorizationCacheKey(PrincipalCollection principals) {
+        ShiroUser shiroUser = (ShiroUser) principals.getPrimaryPrincipal();
+        return shiroUser.toString();
+    }
+
     @Override
     public void onLogout(PrincipalCollection principals) {
         super.clearCachedAuthorizationInfo(principals);
