@@ -82,16 +82,15 @@ public class ShiroDbRealm extends AuthorizingRealm {
     }
 
     @Override
-    protected Object getAuthorizationCacheKey(PrincipalCollection principals) {
-        ShiroUser shiroUser = (ShiroUser) principals.getPrimaryPrincipal();
+    protected Object getAuthenticationCacheKey(PrincipalCollection principals) {
+        ShiroUser shiroUser = (ShiroUser) super.getAvailablePrincipal(principals);
         return shiroUser.toString();
     }
 
     @Override
-    public void onLogout(PrincipalCollection principals) {
-        super.clearCachedAuthorizationInfo(principals);
-        ShiroUser shiroUser = (ShiroUser) principals.getPrimaryPrincipal();
-        removeUserCache(shiroUser);
+    protected Object getAuthorizationCacheKey(PrincipalCollection principals) {
+        ShiroUser shiroUser = (ShiroUser) super.getAvailablePrincipal(principals);
+        return shiroUser.toString();
     }
 
     /**
