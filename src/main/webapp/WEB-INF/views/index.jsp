@@ -180,7 +180,7 @@
         </div>
         <div data-options="region:'west',split:true" title="菜单" style="width: 160px; overflow: hidden;overflow-y:auto; padding:0px">
             <div class="well well-small" style="padding: 5px 5px 5px 5px;">
-                <ul id="layout_west_tree" class="ztree"></ul>
+                <ul id="layout_west_tree"></ul>
             </div>
         </div>
         <div data-options="region:'center'" style="overflow: hidden;">
