@@ -9,7 +9,7 @@
 <script type="text/javascript">
     var index_tabs;
     var indexTabsMenu;
-    var indexMenuZTree;
+    var layout_west_tree;
     $(function() {
         $('#index_layout').layout({fit : true});
         
@@ -77,53 +77,28 @@
             }
         });
         
-        indexMenuZTree = $.fn.zTree.init($("#layout_west_tree"), {
-            data: {
-                key: {
-                    name: "text"
-                },
-                simpleData: {
-                    enable: true,
-                    idKey: "id",
-                    pIdKey: "pid",
-                    rootPId: 1
+        layout_west_tree = $('#layout_west_tree').tree({
+            url : '${path }/resource/tree',
+            parentField : 'pid',
+            lines : true,
+            onClick : function(node) {
+                var opts = {
+                    title : node.text,
+                    border : false,
+                    closable : true,
+                    fit : true,
+                    iconCls : node.iconCls
+                };
+                var url = node.attributes;
+                if (url && url.indexOf("http") == -1) {
+                    url = '${path }' + url;
                 }
-            },
-            async: {
-                enable: true,
-                url:"${path}/resource/tree",
-                dataFilter: function (treeId, parentNode, responseData) {
-                    if (responseData) {
-                        for (var i =0; i < responseData.length; i++) {
-                            var node = responseData[i];
-                            if (node.state == "open") {
-                                node.open = true;
-                            }
-                        }
-                    }
-                    return responseData;
-                }
-            },
-            callback: {
-                onClick: function(event, treeId, node) {
-                    var opts = {
-                        title : node.text,
-                        border : false,
-                        closable : true,
-                        fit : true,
-                        iconCls : node.iconCls
-                    };
-                    var url = node.attributes;
-                    if (url && url.indexOf("http") == -1) {
-                        url = '${path }' + url;
-                    }
-                    if (node.openMode == 'iframe') {
-                        opts.content = '<iframe src="' + url + '" frameborder="0" style="border:0;width:100%;height:99.5%;"></iframe>';
-                        addTab(opts);
-                    } else if (url) {
-                        opts.href = url;
-                        addTab(opts);
-                    }
+                if (node.openMode == 'iframe') {
+                    opts.content = '<iframe src="' + url + '" frameborder="0" style="border:0;width:100%;height:99.5%;"></iframe>';
+                    addTab(opts);
+                } else if (url) {
+                    opts.href = url;
+                    addTab(opts);
                 }
             }
         });

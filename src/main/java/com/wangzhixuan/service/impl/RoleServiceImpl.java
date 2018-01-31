@@ -1,15 +1,5 @@
 package com.wangzhixuan.service.impl;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
@@ -22,6 +12,10 @@ import com.wangzhixuan.mapper.UserRoleMapper;
 import com.wangzhixuan.model.Role;
 import com.wangzhixuan.model.RoleResource;
 import com.wangzhixuan.service.IRoleService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.*;
 
 /**
  *
@@ -103,10 +97,10 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements IR
         Set<String> urlSet = new HashSet<String>();
         Set<String> roles = new HashSet<String>();
         for (Long roleId : roleIdList) {
-            List<Map<Long, String>> resourceList = roleMapper.selectResourceListByRoleId(roleId);
-            if (resourceList != null) {
-                for (Map<Long, String> map : resourceList) {
-                    if (StringUtils.isNotBlank(map.get("url"))) {
+            List<Map<String, String>> resourceList = roleMapper.selectResourceListByRoleId(roleId);
+            if (resourceList != null && !resourceList.isEmpty()) {
+                for (Map<String, String> map : resourceList) {
+                    if (map != null && StringUtils.isNotBlank(map.get("url"))) {
                         urlSet.add(map.get("url"));
                     }
                 }
