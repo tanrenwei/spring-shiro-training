@@ -80,7 +80,6 @@
         layout_west_tree = $('#layout_west_tree').tree({
             url : '${path }/resource/tree',
             parentField : 'pid',
-            lines : true,
             onClick : function(node) {
                 var opts = {
                     title : node.text,
