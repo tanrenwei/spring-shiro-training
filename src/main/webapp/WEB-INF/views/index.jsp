@@ -167,8 +167,9 @@
         <div data-options="region:'north',border:false" style="overflow: hidden;">
             <div>
                 <span style="float: right; padding-right: 20px; margin-top: 15px; color: #333">
-                    <i class="fi-torso"></i>
-                    <b><shiro:principal></shiro:principal></b>&nbsp;&nbsp; 
+                    <a href="javascript:void(0)" class="easyui-linkbutton" plain="true" icon="fi-torso">
+	                    <b><shiro:principal></shiro:principal></b>&nbsp;&nbsp; 
+                    </a>
                     <shiro:hasPermission name="/user/editPwdPage">
                         <a href="javascript:void(0)" onclick="editUserPwd()" class="easyui-linkbutton" plain="true" icon="fi-unlock" >修改密码</a>
                     </shiro:hasPermission>&nbsp;&nbsp;
