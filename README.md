@@ -88,29 +88,9 @@ git地址：<a href="https://git.oschina.net/wangzhixuan/spring-shiro-training.g
 </p>
 
 ## 捐助记录
-`silent`  5元
+`silent`  5元、`truetxw` 5元、`福地` 10元、`AfenG` 10元、`Sky` 50元、`昆明-TOM` 10元、`王刚` 20元、
 
-`truetxw` 5元
-
-`福地` 10元
-
-`AfenG` 10元
-
-`Sky` 50元
-
-`昆明-TOM` 10元
-
-`王刚` 20元
-
-`slieery` 10元
-
-`回音哥` 10元
-
-`青菜萝卜白菜` 88.88元
-
-`soft_xiang` 5元
-
-`王旭民` 10元
+`slieery` 10元、`回音哥` 10元、`青菜萝卜白菜` 88.88元、`soft_xiang` 5元、`王旭民` 10元、`不在随意` 1元
 
 ## License
 
