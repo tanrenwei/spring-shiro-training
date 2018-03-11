@@ -5,7 +5,6 @@
         $('#userAddOrganizationId').combotree({
             url : '${path }/organization/tree',
             parentField : 'pid',
-            lines : true,
             panelHeight : 'auto'
         });
 

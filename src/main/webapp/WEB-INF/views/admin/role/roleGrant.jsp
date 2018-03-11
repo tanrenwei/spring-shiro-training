@@ -6,7 +6,6 @@
         resourceTree = $('#resourceTree').tree({
             url : '${path }/resource/allTrees',
             parentField : 'pid',
-            lines : true,
             checkbox : true,
             onClick : function(node) {},
             onLoadSuccess : function(node, data) {

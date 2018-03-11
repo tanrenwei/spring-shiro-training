@@ -2,7 +2,11 @@ package com.wangzhixuan.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.wangzhixuan.commons.result.Result;
 
 /**
  * <p>
@@ -28,4 +32,16 @@ public class ArticleController {
         return "admin/article/create";
     }
     
+    /**
+     * 保存文章
+     * @param content 文章内容
+     */
+    @PostMapping("save")
+    @ResponseBody
+    public Result save(String content) {
+        Result result = new Result();
+        result.setSuccess(true);
+        result.setMsg(content);
+        return result;
+    }
 }

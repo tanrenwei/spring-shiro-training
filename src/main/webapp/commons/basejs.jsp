@@ -3,21 +3,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="edge" />
 <link rel="shortcut icon" href="${staticPath }/static/style/images/favicon.ico" />
-<%-- [my97日期时间控件] --%>
-<script type="text/javascript" src="${staticPath }/static/My97DatePicker/WdatePicker.js" charset="utf-8"></script>
-<%-- [jQuery] --%>
-<script type="text/javascript" src="${staticPath }/static/easyui/jquery.min.js" charset="utf-8"></script>
 <%-- [EasyUI] --%>
-<link id="easyuiTheme" rel="stylesheet" type="text/css" href="${staticPath }/static/easyui/themes/gray/easyui.css" />
-<link id="easyuiTheme" rel="stylesheet" type="text/css" href="${staticPath }/static/easyui/themes/icon.css" />
-<script type="text/javascript" src="${staticPath }/static/easyui/jquery.easyui.min.js" charset="utf-8"></script>
-<script type="text/javascript" src="${staticPath }/static/easyui/locale/easyui-lang-zh_CN.js" charset="utf-8"></script>
+<link rel="stylesheet" type="text/css" href="${staticPath }/static/js/jquery-easyui/themes/gray/easyui.css">
+<link rel="stylesheet" type="text/css" href="${staticPath }/static/js/jquery-easyui/themes/icon.css">
+<link rel="stylesheet" type="text/css" href="${staticPath }/static/js/jquery-easyui/themes/color.css">
+<link rel="stylesheet" type="text/css" href="${staticPath }/static/style/css/common.css">
+<link rel="stylesheet" type="text/css" href="${staticPath }/static/style/css/icon.css">
+<%-- [my97日期时间控件] --%>
+<script type="text/javascript" src="${staticPath }/static/js/My97DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="${staticPath }/static/js/jquery-easyui/jquery.min.js"></script>
+<script type="text/javascript" src="${staticPath }/static/js/jquery-easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="${staticPath }/static/js/jquery-easyui/locale/easyui-lang-zh_CN.js"></script>
 <%-- [扩展JS] --%>
-<script type="text/javascript" src="${staticPath }/static/arrayToTree.js" charset="utf-8"></script>
-<script type="text/javascript" src="${staticPath }/static/extJs.js" charset="utf-8"></script>
-<%-- [扩展样式] --%>
-<link rel="stylesheet" type="text/css" href="${staticPath }/static/style/css/dreamlu.css?v=10" />
-<link rel="stylesheet" type="text/css" href="${staticPath }/static/foundation-icons/foundation-icons.css" />
+<script type="text/javascript" src="${staticPath }/static/js/arrayToTree.js"></script>
+<script type="text/javascript" src="${staticPath }/static/js/extJs.js"></script>
 <script type="text/javascript">
     var basePath = "${staticPath }";
     window.UEDITOR_HOME_URL = "${staticPath }/static/ueditor/";

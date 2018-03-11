@@ -28,7 +28,7 @@
 <div class="easyui-layout" data-options="fit:true,border:false">
     <div data-options="region:'center',border:false" title="" style="overflow: hidden;">
             <form id="editUserPwdForm" method="post">
-                <table>
+                <table class="grid">
                     <tr>
                         <th>登录名：</th>
                         <td><shiro:principal></shiro:principal></td>

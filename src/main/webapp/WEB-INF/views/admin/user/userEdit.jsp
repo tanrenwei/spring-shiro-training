@@ -5,7 +5,6 @@
         $('#userEditorganizationId').combotree({
             url : '${path }/organization/tree',
             parentField : 'pid',
-            lines : true,
             panelHeight : 'auto',
             value : '${user.organizationId}'
         });
@@ -13,7 +12,6 @@
         $('#userEditRoleIds').combotree({
             url : '${path }/role/tree',
             parentField : 'pid',
-            lines : true,
             panelHeight : 'auto',
             multiple : true,
             required : true,

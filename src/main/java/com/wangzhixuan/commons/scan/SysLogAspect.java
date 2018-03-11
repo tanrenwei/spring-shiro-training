@@ -93,6 +93,9 @@ public class SysLogAspect {
     }
 
     private boolean isWriteLog(String method) {
+        if (method.equals("ueditor")) {
+             return false;
+        }
         String[] pattern = {"login", "logout", "add", "edit", "delete", "grant"};
         for (String s : pattern) {
             if (method.indexOf(s) > -1) {

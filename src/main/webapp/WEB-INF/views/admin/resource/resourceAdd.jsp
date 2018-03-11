@@ -5,7 +5,6 @@
         $('#resourceAddPid').combotree({
             url : '${path }/resource/allTree',
             parentField : 'pid',
-            lines : true,
             panelHeight : 'auto'
         });
 
@@ -24,7 +23,7 @@
                 result = $.parseJSON(result);
                 if (result.success) {
                     parent.$.modalDialog.openner_treeGrid.treegrid('reload');//之所以能在这里调用到parent.$.modalDialog.openner_treeGrid这个对象，是因为resource.jsp页面预定义好了
-                    parent.layout_west_tree.tree('reload');
+                    parent.layoutWestTree.tree('reload');
                     parent.$.modalDialog.handler.dialog('close');
                 } else {
                     var form = $('#resourceAddForm');
@@ -63,7 +62,7 @@
             </tr>
             <tr>
                 <td>菜单图标</td>
-                <td ><input name="icon" /></td>
+                <td ><input name="icon" onclick='top.window.openIconDialog(this)'/></td>
                 <td>排序</td>
                 <td><input name="seq" value="0"  class="easyui-numberspinner" style="width: 140px; height: 29px;" required="required" data-options="editable:false"></td>
             </tr>

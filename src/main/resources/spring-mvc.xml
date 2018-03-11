@@ -73,8 +73,12 @@
     <bean class="org.springframework.validation.beanvalidation.MethodValidationPostProcessor"/>
     
     <!-- ueditor -->
-    <bean class="com.wangzhixuan.commons.ueditor.UeditorManager"/>
-    <bean class="com.wangzhixuan.commons.ueditor.UeditorService"/>
+    <bean id="ueditorManager" class="net.dreamlu.module.ueditor.UeditorManager"/>
+    <bean class="net.dreamlu.module.ueditor.UeditorService">
+        <property name="ueditorManager" ref="ueditorManager"/>
+    </bean>
+    <!-- ueditor -->
+    
     <!-- 使用spring servlet3.0 默认上传 -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.support.StandardServletMultipartResolver"/>
     

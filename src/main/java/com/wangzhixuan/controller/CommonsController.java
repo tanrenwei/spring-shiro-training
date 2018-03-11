@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.wangzhixuan.commons.shiro.captcha.DreamCaptcha;
-import com.wangzhixuan.commons.ueditor.UeditorService;
+
+import net.dreamlu.module.ueditor.UeditorService;
 
 /**
  * 通用的控制器

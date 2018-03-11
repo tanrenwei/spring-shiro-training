@@ -5,7 +5,6 @@
         $('#organizationEditPid').combotree({
             url : '${path }/organization/tree?flag=false',
             parentField : 'pid',
-            lines : true,
             panelHeight : 'auto',
             value :'${organization.pid}'
         });
@@ -48,7 +47,7 @@
                 <td>排序</td>
                 <td><input name="seq"  class="easyui-numberspinner" value="${organization.seq}" style="widtd: 140px; height: 29px;" required="required" data-options="editable:false"></td>
                 <td>菜单图标</td>
-                <td ><input name="icon" value="${organization.icon}"/></td>
+                <td ><input name="icon" value="${organization.icon}" onclick='top.window.openIconDialog(this)'/></td>
             </tr>
             <tr>
                 <td>地址</td>

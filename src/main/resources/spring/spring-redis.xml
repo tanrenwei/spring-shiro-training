@@ -30,13 +30,13 @@
     <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate"
           p:connectionFactory-ref="jedisConnectionFactory">
         <property name="keySerializer">
-            <bean class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer"></bean>
+            <bean class="com.wangzhixuan.commons.redis.serialize.RedisKeySerializer"></bean>
         </property>
         <property name="valueSerializer">
             <bean class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer"/>
         </property>
         <property name="hashKeySerializer">
-            <bean class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer"/>
+            <bean class="com.wangzhixuan.commons.redis.serialize.RedisKeySerializer"/>
         </property>
         <property name="hashValueSerializer">
             <bean class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer"/>
