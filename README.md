@@ -43,21 +43,16 @@
 > 图标管理
 
 ## 效果图
-<p>
-<img src="http://static.oschina.net/uploads/img/201512/06161620_HLY6.jpg"/>
-</p>
-<p>
-<img src="http://static.oschina.net/uploads/img/201512/06161621_NIlr.jpg"/>
-</p>
-<p>
-<img src="http://static.oschina.net/uploads/img/201512/06161621_63ZV.jpg"/>
-</p>
-<p>
-<img src="http://static.oschina.net/uploads/img/201512/06164718_18nx.jpg"/>
-</p>
-<p>
-<img src="http://static.oschina.net/uploads/img/201512/06161621_NiiM.jpg"/>
-</p>
+![登录页](https://gitee.com/uploads/images/2018/0311/151940_17970583_372.jpeg "001.jpg")
+
+![资源页](https://gitee.com/uploads/images/2018/0311/152356_4a7437fe_372.png "002.png")
+
+![图标选择](https://gitee.com/uploads/images/2018/0311/152423_e24d245e_372.png "003.png")
+
+![授权页](https://gitee.com/uploads/images/2018/0311/152438_1d204f6b_372.png "004.png")
+
+## 参考
+Zcurd快速开发平台：https://gitee.com/515097842/zcurd
 
 ## 鸣谢
 <p>
