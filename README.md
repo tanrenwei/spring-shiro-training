@@ -77,8 +77,8 @@ git地址：<a href="https://git.oschina.net/wangzhixuan/spring-shiro-training.g
 </p>
 
 ## 捐助共勉
- <img src="https://gitee.com/uploads/images/2018/0311/153544_5afb12b1_372.jpeg" width="300px"/>
- <img src="https://gitee.com/uploads/images/2018/0311/153556_679db579_372.jpeg" width="300px"/>
+ <img src="https://gitee.com/uploads/images/2018/0311/153544_5afb12b1_372.jpeg" width="250px"/>
+ <img src="https://gitee.com/uploads/images/2018/0311/153556_679db579_372.jpeg" width="250px"/>
 
 ## 捐助记录
 `silent`  5元、`truetxw` 5元、`福地` 10元、`AfenG` 10元、`Sky` 50元、`昆明-TOM` 10元、`王刚` 20元、`slieery` 10元、
