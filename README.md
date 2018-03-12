@@ -51,7 +51,7 @@
 
 ![授权页](https://gitee.com/uploads/images/2018/0311/152438_1d204f6b_372.png "004.png")
 
-## 参考
+## 界面参考
 Zcurd快速开发平台：https://gitee.com/515097842/zcurd
 
 ## 鸣谢
@@ -60,14 +60,9 @@ Zcurd快速开发平台：https://gitee.com/515097842/zcurd
 <a href="http://my.oschina.net/u/993551" target="_blank">@刘晓枫</a>
 </p>
 
-## 演示效果
-<p>
-<a href="http://shiro.dreamlu.net" target="_blank">http://shiro.dreamlu.net</a> 账号：test 密码：test
-</p>
-
 ## 技术咨询
 <p>
-QQ群：523720304 &nbsp; 不提供全权限账号，人多手杂，维护时间有限，可本地导入项目运行，admin密码和test一样，谢谢。
+QQ群：523720304 &nbsp; 本地导入项目运行，账号：admin、test，密码：test。
 </p>
 <p>
 git地址：<a href="https://git.oschina.net/wangzhixuan/spring-shiro-training.git" target="_blank">https://git.oschina.net/wangzhixuan/spring-shiro-training.git</a>
