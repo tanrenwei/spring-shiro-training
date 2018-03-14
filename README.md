@@ -80,6 +80,16 @@ git地址：<a href="https://git.oschina.net/wangzhixuan/spring-shiro-training.g
 
 `回音哥` 10元、`青菜萝卜白菜` 88.88元、`soft_xiang` 5元、`王旭民` 10元、`不在随意` 1元、`程序人生` 100元、`张恒` 20
 
+## VIP群
+0~50名捐助入VIP群，捐助后联系QQ: 596392912
+
+#### VIP权益：
+1. spring boot版（maven + spring boot + spring security + thymeleaf）
+
+2. 技术资料共享
+
+3. spring cloud脚手架（改造中）
+
 ## License
 
 ( The MIT License )
