@@ -1,13 +1,5 @@
 package com.wangzhixuan.service.impl;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.wangzhixuan.commons.result.Tree;
@@ -18,6 +10,13 @@ import com.wangzhixuan.mapper.RoleResourceMapper;
 import com.wangzhixuan.mapper.UserRoleMapper;
 import com.wangzhixuan.model.Resource;
 import com.wangzhixuan.service.IResourceService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 /**
  *
@@ -36,19 +35,27 @@ public class ResourceServiceImpl extends ServiceImpl<ResourceMapper, Resource> i
     private RoleMapper roleMapper;
     @Autowired
     private RoleResourceMapper roleResourceMapper;
-    
+
     @Override
     public List<Resource> selectAll() {
-        EntityWrapper<Resource> wrapper = new EntityWrapper<Resource>();
+        return selectAllByStatus(null);
+    }
+
+    private List<Resource> selectAllByStatus(Integer status) {
+        Resource resource = new Resource();
+        if (status != null) {
+            resource.setStatus(status);
+        }
+        EntityWrapper<Resource> wrapper = new EntityWrapper<Resource>(resource);
         wrapper.orderBy("seq");
         return resourceMapper.selectList(wrapper);
     }
-    
-    public List<Resource> selectByType(Integer type) {
-        EntityWrapper<Resource> wrapper = new EntityWrapper<Resource>();
+
+    private List<Resource> selectByType(Integer type) {
         Resource resource = new Resource();
-        wrapper.setEntity(resource);
-        wrapper.addFilter("resource_type = {0}", type);
+        resource.setResourceType(type);
+        resource.setStatus(0);
+        EntityWrapper<Resource> wrapper = new EntityWrapper<Resource>(resource);
         wrapper.orderBy("seq");
         return resourceMapper.selectList(wrapper);
     }
@@ -78,7 +85,7 @@ public class ResourceServiceImpl extends ServiceImpl<ResourceMapper, Resource> i
     public List<Tree> selectAllTree() {
         // 获取所有的资源 tree形式，展示
         List<Tree> trees = new ArrayList<Tree>();
-        List<Resource> resources = this.selectAll();
+        List<Resource> resources = this.selectAllByStatus(0);
         if (resources == null) {
             return trees;
         }
