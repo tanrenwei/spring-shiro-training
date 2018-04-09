@@ -21,9 +21,7 @@
  */
 package com.wangzhixuan.commons.shiro.cache;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Set;
+import java.util.*;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -41,12 +39,14 @@ public class ShiroSpringCache<K, V> implements org.apache.shiro.cache.Cache<K, V
 	private static final Logger logger = LogManager.getLogger(ShiroSpringCache.class);
 	
 	private final org.springframework.cache.Cache cache;
+	private final boolean hasEhcache;
 	
-	public ShiroSpringCache(Cache cache) {
+	public ShiroSpringCache(Cache cache, boolean hasEhcache) {
 		if (cache == null) {
 			throw new IllegalArgumentException("Cache argument cannot be null.");
 		}
 		this.cache = cache;
+		this.hasEhcache = hasEhcache;
 	}
 
 	@Override
@@ -94,16 +94,43 @@ public class ShiroSpringCache<K, V> implements org.apache.shiro.cache.Cache<K, V
 
 	@Override
 	public int size() {
+		if (hasEhcache) {
+			Object nativeCache = cache.getNativeCache();
+			if (nativeCache instanceof net.sf.ehcache.Ehcache) {
+				net.sf.ehcache.Ehcache ehcache = (net.sf.ehcache.Ehcache) nativeCache;
+				return ehcache.getSize();
+			}
+		}
 		return 0;
 	}
 
 	@Override
 	public Set<K> keys() {
+		if (hasEhcache) {
+			Object nativeCache = cache.getNativeCache();
+			if (nativeCache instanceof net.sf.ehcache.Ehcache) {
+				net.sf.ehcache.Ehcache ehcache = (net.sf.ehcache.Ehcache) nativeCache;
+				return new HashSet<>(ehcache.getKeys());
+			}
+		}
 		return Collections.emptySet();
 	}
 
 	@Override
 	public Collection<V> values() {
+		if (hasEhcache) {
+			Object nativeCache = cache.getNativeCache();
+			if (nativeCache instanceof net.sf.ehcache.Ehcache) {
+				net.sf.ehcache.Ehcache ehcache = (net.sf.ehcache.Ehcache) nativeCache;
+				List keys = ehcache.getKeys();
+				Map<Object, net.sf.ehcache.Element> elementMap = ehcache.getAll(keys);
+				List<Object> values = new ArrayList<>();
+				for (net.sf.ehcache.Element element : elementMap.values()) {
+					values.add(element.getObjectValue());
+				}
+				return (Collection<V>) values;
+			}
+		}
 		return Collections.emptySet();
 	}
 

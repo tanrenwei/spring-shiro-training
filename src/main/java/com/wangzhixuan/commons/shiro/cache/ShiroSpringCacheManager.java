@@ -27,6 +27,7 @@ import org.apache.shiro.cache.Cache;
 import org.apache.shiro.cache.CacheException;
 import org.apache.shiro.cache.CacheManager;
 import org.apache.shiro.util.Destroyable;
+import org.springframework.util.ClassUtils;
 
 /**
  * 使用spring-cache作为shiro缓存
@@ -37,7 +38,12 @@ import org.apache.shiro.util.Destroyable;
 public class ShiroSpringCacheManager implements CacheManager, Destroyable {
 	private static final Logger logger = LogManager.getLogger(ShiroSpringCacheManager.class);
 	private org.springframework.cache.CacheManager cacheManager;
+	private final boolean hasEhcache;
 	
+	public ShiroSpringCacheManager() {
+		hasEhcache = ClassUtils.isPresent("net.sf.ehcache.Ehcache", this.getClass().getClassLoader());
+	}
+
 	public org.springframework.cache.CacheManager getCacheManager() {
 		return cacheManager;
 	}
@@ -52,7 +58,7 @@ public class ShiroSpringCacheManager implements CacheManager, Destroyable {
 			logger.trace("Acquiring ShiroSpringCache instance named [" + name + "]");
 		}
 		org.springframework.cache.Cache cache = cacheManager.getCache(name);
-		return new ShiroSpringCache<K, V>(cache);
+		return new ShiroSpringCache<K, V>(cache, hasEhcache);
 	}
 
 	@Override
