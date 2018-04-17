@@ -118,25 +118,25 @@ var createGridHeaderContextMenu = function(e, field) {
         for ( var i = 0; i < fields.length; i++) {
             var fildOption = grid.datagrid('getColumnOption', fields[i]);
             if (!fildOption.hidden) {
-                $('<div iconCls="tick" field="' + fields[i] + '"/>').html(fildOption.title).appendTo(tmenu);
+                $('<div data-options="iconCls:\'glyphicon-ok\'" field="' + fields[i] + '"/>').html(fildOption.title).appendTo(tmenu);
             } else {
-                $('<div iconCls="bullet_blue" field="' + fields[i] + '"/>').html(fildOption.title).appendTo(tmenu);
+                $('<div data-options="iconCls:\'\'" field="' + fields[i] + '"/>').html(fildOption.title).appendTo(tmenu);
             }
         }
         headerContextMenu = this.headerContextMenu = tmenu.menu({
             onClick : function(item) {
                 var field = $(item.target).attr('field');
-                if (item.iconCls == 'tick') {
+                if (item.iconCls == 'glyphicon-ok') {
                     grid.datagrid('hideColumn', field);
                     $(this).menu('setIcon', {
                         target : item.target,
-                        iconCls : 'bullet_blue'
+                        iconCls : ''
                     });
                 } else {
                     grid.datagrid('showColumn', field);
                     $(this).menu('setIcon', {
                         target : item.target,
-                        iconCls : 'tick'
+                        iconCls : 'glyphicon-ok'
                     });
                 }
             }
