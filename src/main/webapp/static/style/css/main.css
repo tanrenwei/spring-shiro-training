@@ -15,7 +15,7 @@
 
 .left{background-color: #424f63;}
 .menu_head{height: 30px;line-height: 30px;background: #4e5f77;color: #aeb9c2;text-align: center;}
-.layout-expand-north, .layout-expand-west{height: 0px;}
+/* .layout-expand-north, .layout-expand-west{height: 0px;}  */
 
 .tree-expanded{
     background: url('images/tree_icons_main.png') no-repeat -18px 0px;

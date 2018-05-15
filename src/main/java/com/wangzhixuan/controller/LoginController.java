@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.wangzhixuan.commons.base.BaseController;
-import com.wangzhixuan.commons.csrf.CsrfToken;
 import com.wangzhixuan.commons.shiro.captcha.DreamCaptcha;
 import com.wangzhixuan.commons.utils.StringUtils;
 
@@ -57,7 +56,6 @@ public class LoginController extends BaseController {
      * @return {String}
      */
     @GetMapping("/login")
-    @CsrfToken(create = true)
     public String login() {
         logger.info("GET请求登录");
         if (SecurityUtils.getSubject().isAuthenticated()) {
@@ -74,7 +72,6 @@ public class LoginController extends BaseController {
      * @return {Object}
      */
     @PostMapping("/login")
-    @CsrfToken(remove = true)
     @ResponseBody
     public Object loginPost(HttpServletRequest request, HttpServletResponse response,
             String username, String password, String captcha, 
