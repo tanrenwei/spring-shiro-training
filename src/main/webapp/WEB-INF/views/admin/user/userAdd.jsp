@@ -33,7 +33,7 @@
                     parent.$.modalDialog.handler.dialog('close');
                 } else {
                     var form = $('#userAddForm');
-                    parent.$.messager.alert('提示', eval(result.msg), 'warning');
+                    parent.$.messager.alert('提示', result.msg, 'warning');
                 }
             }
         });
