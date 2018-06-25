@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.wangzhixuan.commons.base.BaseController;
 import com.wangzhixuan.commons.result.PageInfo;
 import com.wangzhixuan.commons.shiro.PasswordHash;
+import com.wangzhixuan.commons.shiro.ShiroDbRealm;
 import com.wangzhixuan.commons.utils.StringUtils;
 import com.wangzhixuan.model.Role;
 import com.wangzhixuan.model.User;
@@ -167,6 +168,9 @@ public class UserController extends BaseController {
         return "admin/user/userEditPwd";
     }
 
+    @Autowired
+    private ShiroDbRealm shiroDbRealm;
+    
     /**
      * 修改密码
      *
@@ -182,6 +186,8 @@ public class UserController extends BaseController {
         if (!user.getPassword().equals(passwordHash.toHex(oldPwd, salt))) {
             return renderError("老密码不正确!");
         }
+        // 修改密码时清理用户的缓存
+        shiroDbRealm.removeUserCache(user.getLoginName());
         userService.updatePwdByUserId(getUserId(), passwordHash.toHex(pwd, salt));
         return renderSuccess("密码修改成功！");
     }
