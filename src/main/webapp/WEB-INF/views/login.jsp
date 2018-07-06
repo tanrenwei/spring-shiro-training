@@ -8,8 +8,8 @@
     <meta name="description" content="如梦技术作为中国最权威的java在线教育平台,拥有海量高清java职业课程,涵盖个个组件,根据java在线学习特点,如梦技术推出java学习知识体系图,java职业学习实战路径图,帮助java学习者从零基础起步,结合java实战案例演练,系统学习,助你快速成为java优秀技术人才！">
     <meta name="viewport" content="width=device-width">
     <%@ include file="/commons/basejs.jsp" %>
-    <link rel="stylesheet" type="text/css" href="${staticPath }/static/style/css/login.css?v=201612202107" />
-    <script type="text/javascript" src="${staticPath }/static/js/login.js?v=20170115" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="${staticPath }/static/style/css/login.css?v=${version}" />
+    <script type="text/javascript" src="${staticPath }/static/js/login.js?v=${version}" charset="utf-8"></script>
 </head>
 <body onkeydown="enterlogin();">
 <div class="top_div"></div>

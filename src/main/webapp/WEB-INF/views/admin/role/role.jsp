@@ -128,12 +128,13 @@
                 $.post('${path }/role/delete', {
                     id : id
                 }, function(result) {
+                    result = $.parseJSON(result);
                     if (result.success) {
                         parent.$.messager.alert('提示', result.msg, 'info');
                         roleDataGrid.datagrid('reload');
                     }
                     progressClose();
-                }, 'JSON');
+                }, 'text');
             }
         });
     }

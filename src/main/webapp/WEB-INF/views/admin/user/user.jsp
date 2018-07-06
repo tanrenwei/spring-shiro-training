@@ -159,6 +159,7 @@
                 $.post('${path }/user/delete', {
                     id : id
                 }, function(result) {
+                    result = $.parseJSON(result);
                     if (result.success) {
                         parent.$.messager.alert('提示', result.msg, 'info');
                         userDataGrid.datagrid('reload');
@@ -166,7 +167,7 @@
                         parent.$.messager.alert('错误', result.msg, 'error');
                     }
                     progressClose();
-                }, 'JSON');
+                }, 'text');
             }
         });
     }

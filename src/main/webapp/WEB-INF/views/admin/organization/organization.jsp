@@ -105,6 +105,7 @@
                     $.post('${path }/organization/delete', {
                         id : node.id
                     }, function(result) {
+                        result = $.parseJSON(result);
                         if (result.success) {
                             parent.$.messager.alert('提示', result.msg, 'info');
                             organizationTreeGrid.treegrid('reload');
@@ -112,7 +113,7 @@
                             parent.$.messager.alert('提示', result.msg, 'info');
                         }
                         progressClose();
-                    }, 'JSON');
+                    }, 'text');
                 }
             });
         }

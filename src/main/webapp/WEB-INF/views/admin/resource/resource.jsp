@@ -135,13 +135,14 @@
                     $.post('${path }/resource/delete', {
                         id : node.id
                     }, function(result) {
+                        result = $.parseJSON(result);
                         if (result.success) {
                             parent.$.messager.alert('提示', result.msg, 'info');
                             resourceTreeGrid.treegrid('reload');
                             parent.layoutWestTree.tree('reload');
                         }
                         progressClose();
-                    }, 'JSON');
+                    }, 'text');
                 }
             });
         }

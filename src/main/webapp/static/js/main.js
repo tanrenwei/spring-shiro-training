@@ -114,11 +114,12 @@ function logout(){
         if (r){
             progressLoad();
             $.post(basePath + '/logout', function(result) {
+                result = $.parseJSON(result);
                 if(result.success){
                     progressClose();
                     window.location.href = basePath + '/';
                 }
-            }, 'json');
+            }, 'text');
         }
     });
 }
