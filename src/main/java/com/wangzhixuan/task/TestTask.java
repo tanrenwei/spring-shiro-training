@@ -28,6 +28,7 @@ public class TestTask {
 	
 	@Scheduled(cron = "0 5/20 * * * ?")
 	public void cronTest() {
+
 		// 测试手动存储cache
 		Cache cache = cacheManager.getCache("hour");
 		Integer xx = cache.get("x", new Callable<Integer>() {
